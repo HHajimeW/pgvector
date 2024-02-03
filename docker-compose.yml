@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  db:
+    build:
+      context: ./db
+    restart: always
+    ports: 
+      - "5433:5432"
+    volumes:
+      - db-store:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: "test-user"
+      POSTGRES_PASSWORD: "test-pasword"
+
+volumes:
+  db-store:
